@@ -65,17 +65,25 @@ A full-stack machine learning application that predicts insurance premium catego
 
 ## 🌐 Deployment
 
-### Backend (Vercel)
-The backend is configured for deployment on Vercel.
+### Backend (Render)
 1. Push code to GitHub.
-2. Import project into Vercel.
-3. Deploy.
+2. Sign up on [Render](https://render.com/).
+3. Create a **New Web Service**.
+4. Connect your GitHub repository.
+5. Settings:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
+6. Deploy.
+7. Copy the deployed URL (e.g., `https://your-app.onrender.com`).
 
 ### Frontend (Streamlit Cloud)
 The frontend is optimized for Streamlit Cloud.
-1. Push code to GitHub.
-2. Deploy on Streamlit Cloud.
-3. **Important**: Add the `API_URL` secret in Streamlit Cloud settings pointing to your Vercel deployment URL (e.g., `https://your-app.vercel.app/predict`).
+1. Sign up on [Streamlit Cloud](https://share.streamlit.io/).
+2. Create **New App** and select your repository.
+3. **Advanced Settings**:
+   - Add a secret/environment variable:
+     - `API_URL` = `https://your-app.onrender.com/predict` (Replace with your Render URL).
+4. Deploy.
 
 ## 📡 API Reference
 

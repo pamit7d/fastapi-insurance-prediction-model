@@ -6,4 +6,5 @@ joblib==1.5.3
 pydantic==2.12.5
 requests==2.32.5
 python-multipart
-# Removed streamlit and heavy visualization libraries to fit Vercel 250MB limit
+streamlit==1.53.0
+altair==6.0.0
