@@ -7,20 +7,10 @@ import pickle
 
 
 
-import sys
-
 app = FastAPI()
 
-model = None
-try:
-    with open('model.pkl', 'rb') as f:
-        model = pickle.load(f)
-except Exception as e:
-    print(f"Error loading model: {e}", file=sys.stderr)
-
-@app.get("/")
-def home():
-    return {"message": "Insurance Prediction API is running", "model_status": "loaded" if model else "failed"}
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 tier1 = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"]
 tier2 = [
